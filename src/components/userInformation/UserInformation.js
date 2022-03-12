@@ -12,6 +12,7 @@ const userInformation = ({ users }) => {
                 <p>{item.city}</p>
                 <p>{item.joined}</p>
                 <img src={item.avatar} />
+                <p>{item.bio}</p>
               </li>
             )
         )}

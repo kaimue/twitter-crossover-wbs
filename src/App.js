@@ -5,6 +5,7 @@ import UserInformation from "./components/userInformation/UserInformation";
 
 const App = () => {
   const [messagesArr, setMessagesArr] = useState([]);
+  const [displayedMessages, setDisplayedMessages] = useState([messagesArr]);
   const [usersArr, setUsersArr] = useState([]);
   const [loading, setLoading] = useState(false);
   const [usersLoading, setUsersLoading] = useState(false);
@@ -56,6 +57,21 @@ const App = () => {
     fetchUsers();
   }, []);
 
+  const searchMessages = (searchValue) => {
+    console.log(searchValue);
+    if (searchValue < 2) {
+      setDisplayedMessages(messagesArr);
+      // } else if ((searchValue = "")) {
+      //   setMessagesArr(messagesArr);
+    } else {
+      const filtered = messagesArr.filter((element) =>
+        element.text.includes(searchValue)
+      );
+      console.log(`gefiltert${filtered}`);
+      setDisplayedMessages(filtered);
+    }
+  };
+
   return (
     <>
       <div class="container">
@@ -69,8 +85,13 @@ const App = () => {
             )}
           </div>
           <div class="col">
-            <Searchbar />
-            {loading ? <p>loading ...</p> : <Messages messages={messagesArr} />}
+            <Searchbar searchValueCallback={searchMessages} />
+
+            {loading ? (
+              <p>loading ...</p>
+            ) : (
+              <Messages messages={displayedMessages} />
+            )}
           </div>
         </div>
       </div>

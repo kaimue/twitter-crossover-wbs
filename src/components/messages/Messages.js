@@ -12,6 +12,7 @@ const Messages = ({ messages }) => {
 
             <p>Posted at: {item.createdAt}</p>
             <p>Posted by: {item.user_handle}</p>
+            <img src={item.user_id.avatar} />
           </li>
         ))}
       </ul>
