@@ -12,7 +12,6 @@ const Searchbar = ({ searchValueCallback }) => {
         type="text"
         placeholder="Search Twitter ..."
         onChange={(event) => searchValueCallback(event.target.value)}
-
         //searchValueCallback={searchValue}
       />
     </div>
