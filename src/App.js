@@ -87,11 +87,7 @@ const App = () => {
           <div class="col">
             <Searchbar searchValueCallback={searchMessages} />
 
-            {loading ? (
-              <p>loading ...</p>
-            ) : (
-              <Messages messages={displayedMessages} />
-            )}
+            {loading ? <p>loading ...</p> : <Messages messages={messagesArr} />}
           </div>
         </div>
       </div>
