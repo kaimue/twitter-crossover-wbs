@@ -6,10 +6,12 @@ const Messages = ({ messages }) => {
     <>
       <ul class="list-group">
         {messages.map((item) => (
-          <li class="list-group-item" key={item.user_id}>
+          <li class="list-group-item" key={item._id}>
             <p>{item.text}</p>
-            <p>{item.date}</p>
             <img src={item.picture} />
+
+            <p>Posted at: {item.createdAt}</p>
+            <p>Posted by: {item.user_handle}</p>
           </li>
         ))}
       </ul>
